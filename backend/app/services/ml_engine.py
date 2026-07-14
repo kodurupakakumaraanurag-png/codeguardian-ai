@@ -3,6 +3,7 @@ import numpy as np
 import os
 import joblib
 from typing import Dict, List, Tuple, Any, Union
+from pandas.api.types import is_integer_dtype
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
@@ -32,7 +33,7 @@ class MLEngine:
         
         # Detect task type: Classification vs Regression
         unique_targets = y.nunique()
-        is_classification = unique_targets <= 10 or y.dtype == object or np.issubdtype(y.dtype, np.integer)
+        is_classification = unique_targets <= 10 or y.dtype == object or is_integer_dtype(y)
         
         # Handle classification
         if is_classification:

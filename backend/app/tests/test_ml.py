@@ -5,6 +5,7 @@ import numpy as np
 import pytest
 from backend.app.services.data_cleaner import DataCleaner
 from backend.app.services.ml_engine import MLEngine
+from pandas.api.types import is_numeric_dtype
 
 TEST_DIR = "./test_storage"
 RAW_CSV = os.path.join(TEST_DIR, "raw_test.csv")
@@ -63,7 +64,7 @@ def test_data_cleaning_and_profiling():
     assert df_clean["loc"].isnull().sum() == 0
     assert df_clean["categorical_metric"].isnull().sum() == 0
     # Categorical columns should have been mapped to numbers
-    assert np.issubdtype(df_clean["categorical_metric"].dtype, np.number)
+    assert is_numeric_dtype(df_clean["categorical_metric"])
 
 def test_model_training_and_prediction():
     # 1. Train model

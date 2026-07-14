@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 from typing import Dict, List, Tuple, Any
+from pandas.api.types import is_numeric_dtype
 
 class DataCleaner:
     @staticmethod
@@ -87,7 +88,7 @@ class DataCleaner:
                 continue
                 
             # If numeric:
-            if np.issubdtype(df[col].dtype, np.number):
+            if is_numeric_dtype(df[col]):
                 null_count = int(df[col].isnull().sum())
                 if null_count > 0:
                     median_val = float(df[col].median())
@@ -118,7 +119,7 @@ class DataCleaner:
             
         # Target encoding if it's categorical
         target_mapping = None
-        if not np.issubdtype(df[target_column].dtype, np.number):
+        if not is_numeric_dtype(df[target_column]):
             df[target_column] = df[target_column].astype(str)
             target_categories = sorted(df[target_column].unique())
             target_mapping = {cat: idx for idx, cat in enumerate(target_categories)}
