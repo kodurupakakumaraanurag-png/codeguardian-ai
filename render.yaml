@@ -1,0 +1,17 @@
+# Render Deployment Blueprint Configuration
+services:
+  - type: web
+    name: codeguardian-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false # User will provide Supabase URL in dashboard
+      - key: BYPASS_AUTH
+        value: "True" # Fallback to true in Dev, user toggles to False in Prod
+      - key: CLERK_SECRET_KEY
+        sync: false
+      - key: CLERK_JWKS_URL
+        sync: false
