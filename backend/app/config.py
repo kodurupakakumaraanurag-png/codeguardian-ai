@@ -32,6 +32,7 @@ class Settings(BaseSettings):
         case_sensitive = True
 
 settings = Settings()
+settings.DATABASE_URL = settings.DATABASE_URL.strip()
 
 # Ensure storage directories exist
 os.makedirs(settings.STORAGE_DIR, exist_ok=True)
