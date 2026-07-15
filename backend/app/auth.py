@@ -2,7 +2,7 @@ import requests
 from fastapi import HTTPException, Security, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import jwt, JWTError
-from backend.app.config import settings
+from app.config import settings
 
 security = HTTPBearer(auto_error=False)
 

@@ -4,13 +4,13 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 from typing import List
-from backend.app.database import get_db
-from backend.app.models import Model, Prediction
-from backend.app.schemas.prediction import PredictionRequest, PredictionResponse
-from backend.app.services.ml_engine import MLEngine
-from backend.app.services.report_gen import ReportGen
-from backend.app.auth import verify_token
-from backend.app.config import settings
+from app.database import get_db
+from app.models import Model, Prediction
+from app.schemas.prediction import PredictionRequest, PredictionResponse
+from app.services.ml_engine import MLEngine
+from app.services.report_gen import ReportGen
+from app.auth import verify_token
+from app.config import settings
 
 router = APIRouter(prefix="/predictions", tags=["predictions"])
 

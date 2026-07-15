@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, JSON, Uuid
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from backend.app.database import Base
+from app.database import Base
 
 class Dataset(Base):
     __tablename__ = "datasets"

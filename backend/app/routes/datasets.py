@@ -4,12 +4,12 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status
 from sqlalchemy.orm import Session
 from typing import List
-from backend.app.database import get_db
-from backend.app.models import Dataset
-from backend.app.schemas.dataset import DatasetResponse
-from backend.app.services.data_cleaner import DataCleaner
-from backend.app.auth import verify_token
-from backend.app.config import settings
+from app.database import get_db
+from app.models import Dataset
+from app.schemas.dataset import DatasetResponse
+from app.services.data_cleaner import DataCleaner
+from app.auth import verify_token
+from app.config import settings
 
 router = APIRouter(prefix="/datasets", tags=["datasets"])
 

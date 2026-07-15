@@ -3,8 +3,8 @@ import shutil
 import pandas as pd
 import numpy as np
 import pytest
-from backend.app.services.data_cleaner import DataCleaner
-from backend.app.services.ml_engine import MLEngine
+from app.services.data_cleaner import DataCleaner
+from app.services.ml_engine import MLEngine
 from pandas.api.types import is_numeric_dtype
 
 TEST_DIR = "./test_storage"

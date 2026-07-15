@@ -3,12 +3,12 @@ import os
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-from backend.app.database import get_db
-from backend.app.models import Dataset, Model
-from backend.app.schemas.model import ModelTrainRequest, ModelResponse
-from backend.app.services.ml_engine import MLEngine
-from backend.app.auth import verify_token
-from backend.app.config import settings
+from app.database import get_db
+from app.models import Dataset, Model
+from app.schemas.model import ModelTrainRequest, ModelResponse
+from app.services.ml_engine import MLEngine
+from app.auth import verify_token
+from app.config import settings
 
 router = APIRouter(prefix="/models", tags=["models"])
 

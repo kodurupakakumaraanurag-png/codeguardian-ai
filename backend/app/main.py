@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.config import settings
-from backend.app.database import engine, Base
-from backend.app.routes import datasets, models, predictions
+from app.config import settings
+from app.database import engine, Base
+from app.routes import datasets, models, predictions
 
 # Create database tables automatically (for SQLite/Supabase compatibility)
 Base.metadata.create_all(bind=engine)
