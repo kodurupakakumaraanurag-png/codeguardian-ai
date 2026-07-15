@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     )
     
     # CORS
-    BACKEND_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    BACKEND_CORS_ORIGINS: List[str] = ["*"]
     
     # Storage
     STORAGE_DIR: str = "./storage"
