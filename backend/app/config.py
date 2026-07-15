@@ -22,8 +22,8 @@ class Settings(BaseSettings):
     # CORS
     BACKEND_CORS_ORIGINS: List[str] = ["*"]
     
-    # Storage
-    STORAGE_DIR: str = "./storage"
+    # Storage (Use /tmp on Linux/Render to support read-only cloud filesystems)
+    STORAGE_DIR: str = "/tmp/codeguardian" if os.name != "nt" else "./storage"
     
     # Mock Auth Toggle (for local development without Clerk configure)
     BYPASS_AUTH: bool = True
