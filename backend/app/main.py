@@ -1,3 +1,8 @@
+import os
+import sys
+# Dynamic path resolution to support monorepos
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings

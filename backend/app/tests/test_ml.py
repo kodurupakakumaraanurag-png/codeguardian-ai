@@ -1,4 +1,8 @@
 import os
+import sys
+# Dynamic path resolution to support monorepos
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 import shutil
 import pandas as pd
 import numpy as np
